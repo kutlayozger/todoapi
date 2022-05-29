@@ -1,7 +1,10 @@
 const express = require("express"),
       http = require('http'),
+      dotenv = require('dotenv'),
       api = require('./api/apiRouter'),
       app = express();
+
+dotenv.config();
 
 var server;
 
@@ -14,6 +17,6 @@ app.get('/', function (req, res) {
 });
 
 server = http.createServer(app);
-server.listen(8081, function () {
+server.listen(process.env.PORT, function () {
   console.log("Server ready");
 })
